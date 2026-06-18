@@ -27,10 +27,6 @@
   transform: translateY(-2px);
 }
 
-#rr-btn.rr-on {
-  background: rgba(30, 140, 60, 0.88);
-}
-
 #rr-btn.rr-on:hover {
   background: rgba(25, 170, 70, 0.95);
 }
