@@ -1,0 +1,18 @@
+{
+  "extensionName": {
+    "message": "Recommended Remover",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Adds a toggle button on YouTube watch pages to hide the recommended videos panel.",
+    "description": "Description of the extension"
+  },
+  "btnHide": {
+    "message": "Hide Recommendations",
+    "description": "Button label when recommendations are visible"
+  },
+  "btnShow": {
+    "message": "Show Recommendations",
+    "description": "Button label when recommendations are hidden"
+  }
+}

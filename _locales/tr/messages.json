@@ -1,0 +1,18 @@
+{
+  "extensionName": {
+    "message": "Recommended Remover",
+    "description": "Uzantının adı"
+  },
+  "extensionDescription": {
+    "message": "YouTube video sayfalarında önerilen videolar panelini gizlemek için bir buton ekler.",
+    "description": "Uzantının açıklaması"
+  },
+  "btnHide": {
+    "message": "Önerilenleri Kapat",
+    "description": "Önerilenleri gizleme butonu etiketi"
+  },
+  "btnShow": {
+    "message": "Önerilenleri Aç",
+    "description": "Önerilenleri gösterme butonu etiketi"
+  }
+}
