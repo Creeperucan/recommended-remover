@@ -41,7 +41,6 @@
   flex-shrink: 0;
 }
 
-/* Yatay scroll çubuğunu gizle */
 html, body {
   overflow-x: hidden !important;
 }
