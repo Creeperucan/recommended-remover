@@ -1,6 +1,8 @@
 (() => {
   const STORAGE_KEY = 'rr_hidden_globally';
   let observer = null;
+  let cachedHidden = false;
+  let debounceTimer = null;
 
   function isContextValid() {
     try { return !!chrome.runtime.id; } catch { return false; }
@@ -16,18 +18,20 @@
     try { return chrome.i18n.getMessage(key) || key; } catch { return key; }
   }
 
-  function isHidden(cb) {
+  function loadHidden(cb) {
     if (!isContextValid()) { selfDestruct(); return; }
     try {
       chrome.storage.local.get([STORAGE_KEY], (r) => {
         if (chrome.runtime.lastError) return;
-        cb(!!r[STORAGE_KEY]);
+        cachedHidden = !!r[STORAGE_KEY];
+        cb(cachedHidden);
       });
     } catch { selfDestruct(); }
   }
 
   function setHidden(val) {
     if (!isContextValid()) { selfDestruct(); return; }
+    cachedHidden = val;
     try { chrome.storage.local.set({ [STORAGE_KEY]: val }); } catch { selfDestruct(); }
   }
 
@@ -37,7 +41,15 @@
 
   function applyVisibility(hidden) {
     const el = getTarget();
-    if (el) el.style.display = hidden ? 'none' : '';
+    if (!el) return;
+    const newDisplay = hidden ? 'none' : '';
+    if (el.style.display === newDisplay) return;
+    el.style.display = newDisplay;
+    requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
+  }
+
+  function isFullscreen() {
+    return !!(document.fullscreenElement || document.webkitFullscreenElement);
   }
 
   function updateBtn(hidden) {
@@ -45,6 +57,7 @@
     if (!btn) return;
     btn.classList.toggle('rr-on', !hidden);
     btn.querySelector('span').textContent = hidden ? i18n('btnShow') : i18n('btnHide');
+    btn.style.display = isFullscreen() ? 'none' : '';
   }
 
   function injectButton() {
@@ -62,16 +75,15 @@
     `;
 
     btn.addEventListener('click', () => {
-      isHidden((hidden) => {
-        const next = !hidden;
-        setHidden(next);
-        applyVisibility(next);
-        updateBtn(next);
-      });
+      const next = !cachedHidden;
+      setHidden(next);
+      applyVisibility(next);
+      updateBtn(next);
     });
 
     document.body.appendChild(btn);
-    isHidden((hidden) => { applyVisibility(hidden); updateBtn(hidden); });
+    applyVisibility(cachedHidden);
+    updateBtn(cachedHidden);
   }
 
   function cleanup() {
@@ -82,25 +94,46 @@
   function run() {
     if (!isContextValid()) { selfDestruct(); return; }
     if (!location.pathname.startsWith('/watch')) { cleanup(); return; }
-    injectButton();
-    isHidden((hidden) => { applyVisibility(hidden); updateBtn(hidden); });
+    loadHidden((hidden) => {
+      injectButton();
+      applyVisibility(hidden);
+      updateBtn(hidden);
+    });
   }
 
   let lastUrl = location.href;
 
   observer = new MutationObserver(() => {
     if (!isContextValid()) { selfDestruct(); return; }
+
     if (location.href !== lastUrl) {
       lastUrl = location.href;
-      setTimeout(run, 900);
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(run, 900);
       return;
     }
+
     if (!document.getElementById('rr-btn') && location.pathname.startsWith('/watch')) {
-      injectButton();
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        injectButton();
+        applyVisibility(cachedHidden);
+        updateBtn(cachedHidden);
+      }, 200);
     }
-    isHidden((hidden) => applyVisibility(hidden));
+    applyVisibility(cachedHidden);
   });
 
   observer.observe(document.body, { childList: true, subtree: true });
+
+  function onFullscreenChange() {
+    const btn = document.getElementById('rr-btn');
+    if (!btn) return;
+    const entering = !!(document.fullscreenElement || document.webkitFullscreenElement);
+    btn.style.display = entering ? 'none' : '';
+  }
+  document.addEventListener('fullscreenchange', onFullscreenChange);
+  document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+
   setTimeout(run, 1200);
 })();
