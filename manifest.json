@@ -2,20 +2,29 @@
   "manifest_version": 3,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.0",
+  "version": "1.2",
   "default_locale": "en",
   "permissions": ["storage"],
+  "host_permissions": ["https://api.github.com/*"],
+  "action": {
+    "default_popup": "settings.html",
+    "default_title": "__MSG_extensionName__"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["channels.json"],
+      "matches": ["*://www.youtube.com/*"]
+    }
+  ],
   "content_scripts": [
     {
       "matches": ["*://www.youtube.com/*"],
-      "js": ["content.js"],
-      "css": ["styles.css"],
+      "js": ["js/badges.js", "js/content.js"],
+      "css": ["css/styles.css", "css/badge.css"],
       "run_at": "document_idle"
     }
   ],
   "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
+    "512": "icon512.png"
   }
 }

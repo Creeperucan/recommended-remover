@@ -14,5 +14,93 @@
   "btnShow": {
     "message": "Show Recommendations",
     "description": "Button label when recommendations are hidden"
+  },
+  "badgeAI": {
+    "message": "AI",
+    "description": "This badge indicates that the channel uses artificial intelligence."
+  },
+  "badgePE": {
+    "message": "Private Equity",
+    "description": "This badge indicates that the channel is associated with private equity."
+  },
+  "badgeAIDescription": {
+    "message": "This badge indicates that the channel uses artificial intelligence.",
+    "description": "AI badge tooltip"
+  },
+  "badgePEDescription": {
+    "message": "This badge indicates that the channel is associated with private equity.",
+    "description": "Private Equity badge tooltip"
+  },
+  "settingsTitle": {
+    "message": "Settings",
+    "description": "Popup heading"
+  },
+  "settingsFeatures": {
+    "message": "Features",
+    "description": "Settings group heading"
+  },
+  "settingsBadges": {
+    "message": "Channel badges",
+    "description": "Badge setting label"
+  },
+  "settingsBadgesDescription": {
+    "message": "Show channel labels on YouTube",
+    "description": "Badge setting description"
+  },
+  "settingsButtonText": {
+    "message": "Recommendation button text",
+    "description": "Recommendation button text setting label"
+  },
+  "settingsButtonTextDescription": {
+    "message": "Show text beside the visibility icon",
+    "description": "Recommendation button text setting description"
+  },
+  "settingsAppearance": {
+    "message": "Appearance",
+    "description": "Appearance setting group heading"
+  },
+  "settingsTheme": {
+    "message": "Color theme",
+    "description": "Theme setting label"
+  },
+  "settingsLight": {
+    "message": "Light",
+    "description": "Light theme option"
+  },
+  "settingsDark": {
+    "message": "Dark",
+    "description": "Dark theme option"
+  },
+  "updateChecking": {
+    "message": "Checking for updates...",
+    "description": "Update status while checking GitHub"
+  },
+  "updateCurrent": {
+    "message": "Extension is up to date (v$1).",
+    "description": "Update status when installed version is current",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.0"
+      }
+    }
+  },
+  "updateAvailable": {
+    "message": "Update available (v$1).",
+    "description": "Update status when a newer release exists",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.1"
+      }
+    }
+  },
+  "updateViewRelease": {
+    "message": "View release",
+    "description": "Link to latest GitHub release"
+  },
+  "updateCheckFailed": {
+    "message": "Could not check for updates.",
+    "description": "Update status when GitHub cannot be reached"
   }
 }

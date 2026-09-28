@@ -1,0 +1,40 @@
+.rr-badge-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rr-badge-renderer {
+  display: block !important;
+  width: auto !important;
+  margin-top: 4px !important;
+  white-space: nowrap !important;
+}
+
+.rr-badge-renderer > yt-badge-supported-renderer {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  width: auto !important;
+  max-width: 100% !important;
+}
+
+.rr-badge-renderer .rr-badge-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+}
+
+ytd-video-renderer #badges.rr-badge-renderer {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin: 0 !important;
+}
+
+ytd-video-renderer #badges.rr-badge-renderer > yt-badge-supported-renderer {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}

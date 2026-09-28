@@ -14,5 +14,93 @@
   "btnShow": {
     "message": "Önerilenleri Aç",
     "description": "Önerilenleri gösterme butonu etiketi"
+  },
+  "badgeAI": {
+    "message": "Yapay Zeka",
+    "description": "Bu rozet bu kanalın yapay zeka kullandığını gösterir."
+  },
+  "badgePE": {
+    "message": "Özel Sermaye",
+    "description": "Bu rozet bu kanalın özel sermaye ile ilişkili olduğunu gösterir."
+  },
+  "badgeAIDescription": {
+    "message": "Bu rozet, kanalın yapay zeka kullandığını gösterir.",
+    "description": "Yapay zeka rozeti tooltip metni"
+  },
+  "badgePEDescription": {
+    "message": "Bu rozet, kanalın özel sermaye ile ilişkili olduğunu gösterir.",
+    "description": "Özel sermaye rozeti tooltip metni"
+  },
+  "settingsTitle": {
+    "message": "Ayarlar",
+    "description": "Popup başlığı"
+  },
+  "settingsFeatures": {
+    "message": "Özellikler",
+    "description": "Ayar grubu başlığı"
+  },
+  "settingsBadges": {
+    "message": "Kanal rozetleri",
+    "description": "Rozet ayarı etiketi"
+  },
+  "settingsBadgesDescription": {
+    "message": "YouTube'da kanal etiketlerini göster",
+    "description": "Rozet ayarı açıklaması"
+  },
+  "settingsButtonText": {
+    "message": "Öneri düğmesi metni",
+    "description": "Öneri düğmesi metin ayarı etiketi"
+  },
+  "settingsButtonTextDescription": {
+    "message": "Görünürlük simgesinin yanında metni göster",
+    "description": "Öneri düğmesi metin ayarı açıklaması"
+  },
+  "settingsAppearance": {
+    "message": "Görünüm",
+    "description": "Görünüm grubu başlığı"
+  },
+  "settingsTheme": {
+    "message": "Renk teması",
+    "description": "Tema ayarı etiketi"
+  },
+  "settingsLight": {
+    "message": "Açık",
+    "description": "Açık tema seçeneği"
+  },
+  "settingsDark": {
+    "message": "Koyu",
+    "description": "Koyu tema seçeneği"
+  },
+  "updateChecking": {
+    "message": "Güncellemeler denetleniyor...",
+    "description": "GitHub denetimi sırasında güncelleme durumu"
+  },
+  "updateCurrent": {
+    "message": "Uzantı güncel (v$1).",
+    "description": "Yüklü sürüm güncel olduğunda durum",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.0"
+      }
+    }
+  },
+  "updateAvailable": {
+    "message": "Güncelleme mevcut (v$1).",
+    "description": "Daha yeni bir sürüm olduğunda durum",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.1"
+      }
+    }
+  },
+  "updateViewRelease": {
+    "message": "Sürümü görüntüle",
+    "description": "En son GitHub sürümüne bağlantı"
+  },
+  "updateCheckFailed": {
+    "message": "Güncellemeler denetlenemedi.",
+    "description": "GitHub'a erişilemediğinde güncelleme durumu"
   }
 }
